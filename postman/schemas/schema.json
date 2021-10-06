@@ -1,0 +1,1437 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PMCU Backend",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/accounts/{accountNumber}/statement/latest": {
+      "get": {
+        "tags": [
+          "Statement"
+        ],
+        "summary": "Latest",
+        "operationId": "Latest",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+                },
+                "example": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/accounts/{accountNumber}/statement/date": {
+      "get": {
+        "tags": [
+          "Statement"
+        ],
+        "summary": "Date",
+        "operationId": "Date",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Mon, 14 Jun 2021 14:30:25 GMT"
+                  }
+                }
+              },
+              "Transfer-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "chunked"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "close"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "x-srv-trace": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "v=1;t=d33d68b932344fce"
+                  }
+                }
+              },
+              "x-srv-span": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "v=1;s=210e5b055e5bd71e"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "X-RateLimit-Limit": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "120"
+                  }
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "119"
+                  }
+                }
+              },
+              "X-RateLimit-Reset": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1623681083"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Accept-Encoding"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\n    \"period\": {\n        \"from\": \"{{$randomDatePast}}\",\n        \"to\": \"{{$randomDateRecent}}\"\n    },\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+                },
+                "example": "{\n    \"period\": {\n        \"from\": \"{{$randomDatePast}}\",\n        \"to\": \"{{$randomDateRecent}}\"\n    },\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/accounts/create": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Create",
+        "operationId": "Create",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRequest"
+              },
+              "example": {
+                "type": "{{$randomBankAccountName}}",
+                "holder": "{{customerId}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/200OK"
+                },
+                "example": {
+                  "type": "{{$randomBankAccountName}}",
+                  "details": {
+                    "domestic": {
+                      "account": "{{$randomBankAccount}}",
+                      "routing": "{{$randomBankAccount}}"
+                    },
+                    "international": {
+                      "bic": "{{$randomBankAccountBic}}",
+                      "iban": "{{$randomBankAccountIban}}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/accounts/{accountNumber}/overview": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Overview",
+        "operationId": "Overview",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"balance\": {\n        \"available\": {{$randomPrice}},\n        \"present\": {{$randomPrice}}\n    },\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"{{$randomBankAccount}}\",\n            \"routing\": \"{{$randomBankAccount}}\"\n        },\n        \"international\": {\n            \"bic\": \"{{$randomBankAccountBic}}\",\n            \"iban\": \"{{$randomBankAccountIban}}\"\n        }\n    },\n    \"interestRate\": 0.01,\n    \"lastStatementDate\": \"{{$randomDateRecent}}\"\n}"
+                },
+                "example": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"balance\": {\n        \"available\": {{$randomPrice}},\n        \"present\": {{$randomPrice}}\n    },\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"{{$randomBankAccount}}\",\n            \"routing\": \"{{$randomBankAccount}}\"\n        },\n        \"international\": {\n            \"bic\": \"{{$randomBankAccountBic}}\",\n            \"iban\": \"{{$randomBankAccountIban}}\"\n        }\n    },\n    \"interestRate\": 0.01,\n    \"lastStatementDate\": \"{{$randomDateRecent}}\"\n}"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/create": {
+      "post": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "New user",
+        "description": "Creates a new user in the system. The user will be assigned an ID automatically. This can be found in the response.",
+        "operationId": "Newuser",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "firstName",
+                  "lastName"
+                ],
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "description": "The user's first name (required)",
+                    "example": "{{$randomFirstName}}"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "description": "The user's last name (required)",
+                    "example": "{{$randomLastName}}"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "101"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Thu, 10 Jan 2019 23:58:59 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Newuser"
+                },
+                "example": {
+                  "status": "success",
+                  "firstName": "Ben",
+                  "lastName": "Smith",
+                  "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get": {
+      "get": {
+        "tags": [
+          "Read"
+        ],
+        "summary": "Get all users",
+        "description": "Get all users in the system.",
+        "operationId": "Getallusers",
+        "parameters": [
+          {
+            "name": "all",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{key}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "105"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 11 Jan 2019 00:00:53 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/200OK1"
+                  },
+                  "description": "",
+                  "example": [
+                    {
+                      "status": "success"
+                    },
+                    {
+                      "firstName": "Ben",
+                      "lastName": "Smith",
+                      "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+                    }
+                  ]
+                },
+                "example": [
+                  {
+                    "status": "success"
+                  },
+                  {
+                    "firstName": "Ben",
+                    "lastName": "Smith",
+                    "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/update": {
+      "put": {
+        "tags": [
+          "Update"
+        ],
+        "summary": "Update user",
+        "description": "Send the keys that you'd like to update, this can be one or more of `firstName`, `lastName` and `password`.",
+        "operationId": "Updateuser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The user's ID (required)",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "{{id}}"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "firstName"
+                ],
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "description": "The user's new first name",
+                    "example": "Benjamin"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "106"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 11 Jan 2019 00:18:07 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Updateuser"
+                },
+                "example": {
+                  "status": "success",
+                  "firstName": "Benjamin",
+                  "lastName": "Smith",
+                  "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/delete": {
+      "delete": {
+        "tags": [
+          "Delete"
+        ],
+        "summary": "Delete user",
+        "description": "Deletes a user from the system by `id`.",
+        "operationId": "Deleteuser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The user's ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "{{id}}"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "text/plain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "64"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 11 Jan 2019 00:20:55 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Deleteuser"
+                },
+                "example": {
+                  "status": "success",
+                  "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/payments/{accountNumber}/payees": {
+      "get": {
+        "tags": [
+          "Payees"
+        ],
+        "summary": "List",
+        "operationId": "List",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "[\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    }\n]"
+                },
+                "example": "[\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    }\n]"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/payments/{accountNumber}/payees/add": {
+      "post": {
+        "tags": [
+          "Payees"
+        ],
+        "summary": "Add",
+        "operationId": "Add",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}"
+              },
+              "example": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}"
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/200OK2"
+                },
+                "example": {
+                  "payeeId": "{{$randomUUID}}"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/payments/{accountNumber}/limits": {
+      "get": {
+        "tags": [
+          "Limits"
+        ],
+        "summary": "Current",
+        "operationId": "Current",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/200OK3"
+                },
+                "example": {
+                  "daily": 30000
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Limits"
+        ],
+        "summary": "Update",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRequest"
+              },
+              "example": {
+                "daily": 30000
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/200OK4"
+                },
+                "example": {
+                  "status": "success"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/payments/{accountNumber}/transfer": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "Transfer",
+        "operationId": "Transfer",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferRequest"
+              },
+              "example": {
+                "payeeId": "{{$randomUUID}}",
+                "amount": "{{$randomPrice}}",
+                "reference": "{{$randomLoremSentence}}",
+                "date": "{{$randomDateRecent}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/200OK5"
+                },
+                "example": {
+                  "transaction": "complete"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateRequest": {
+        "title": "CreateRequest",
+        "required": [
+          "type",
+          "holder"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "holder": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "{{$randomBankAccountName}}",
+          "holder": "{{customerId}}"
+        }
+      },
+      "200OK": {
+        "title": "200OK",
+        "required": [
+          "type",
+          "details"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "details": {
+            "$ref": "#/components/schemas/Details"
+          }
+        },
+        "example": {
+          "type": "{{$randomBankAccountName}}",
+          "details": {
+            "domestic": {
+              "account": "{{$randomBankAccount}}",
+              "routing": "{{$randomBankAccount}}"
+            },
+            "international": {
+              "bic": "{{$randomBankAccountBic}}",
+              "iban": "{{$randomBankAccountIban}}"
+            }
+          }
+        }
+      },
+      "Details": {
+        "title": "Details",
+        "required": [
+          "domestic",
+          "international"
+        ],
+        "type": "object",
+        "properties": {
+          "domestic": {
+            "$ref": "#/components/schemas/Domestic"
+          },
+          "international": {
+            "$ref": "#/components/schemas/International"
+          }
+        },
+        "example": {
+          "domestic": {
+            "account": "{{$randomBankAccount}}",
+            "routing": "{{$randomBankAccount}}"
+          },
+          "international": {
+            "bic": "{{$randomBankAccountBic}}",
+            "iban": "{{$randomBankAccountIban}}"
+          }
+        }
+      },
+      "Domestic": {
+        "title": "Domestic",
+        "required": [
+          "account",
+          "routing"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "routing": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "account": "{{$randomBankAccount}}",
+          "routing": "{{$randomBankAccount}}"
+        }
+      },
+      "International": {
+        "title": "International",
+        "required": [
+          "bic",
+          "iban"
+        ],
+        "type": "object",
+        "properties": {
+          "bic": {
+            "type": "string"
+          },
+          "iban": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "bic": "{{$randomBankAccountBic}}",
+          "iban": "{{$randomBankAccountIban}}"
+        }
+      },
+      "Newuser": {
+        "title": "Newuser",
+        "required": [
+          "status",
+          "firstName",
+          "lastName",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success",
+          "firstName": "Ben",
+          "lastName": "Smith",
+          "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+        }
+      },
+      "200OK1": {
+        "title": "200OK1",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success"
+        }
+      },
+      "GetuserbyID": {
+        "title": "GetuserbyID",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success"
+        }
+      },
+      "GetuserbyID(nouserfound)": {
+        "title": "GetuserbyID(nouserfound)",
+        "required": [
+          "status",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "no user found",
+          "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b"
+        }
+      },
+      "m200": {
+        "title": "m200",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success"
+        }
+      },
+      "Updateuser": {
+        "title": "Updateuser",
+        "required": [
+          "status",
+          "firstName",
+          "lastName",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success",
+          "firstName": "Benjamin",
+          "lastName": "Smith",
+          "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+        }
+      },
+      "Deleteuser": {
+        "title": "Deleteuser",
+        "required": [
+          "status",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success",
+          "id": "0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7"
+        }
+      },
+      "200OK2": {
+        "title": "200OK2",
+        "required": [
+          "payeeId"
+        ],
+        "type": "object",
+        "properties": {
+          "payeeId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "payeeId": "{{$randomUUID}}"
+        }
+      },
+      "200OK3": {
+        "title": "200OK3",
+        "required": [
+          "daily"
+        ],
+        "type": "object",
+        "properties": {
+          "daily": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "daily": 30000
+        }
+      },
+      "UpdateRequest": {
+        "title": "UpdateRequest",
+        "required": [
+          "daily"
+        ],
+        "type": "object",
+        "properties": {
+          "daily": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "daily": 30000
+        }
+      },
+      "200OK4": {
+        "title": "200OK4",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "success"
+        }
+      },
+      "TransferRequest": {
+        "title": "TransferRequest",
+        "required": [
+          "payeeId",
+          "amount",
+          "reference",
+          "date"
+        ],
+        "type": "object",
+        "properties": {
+          "payeeId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "payeeId": "{{$randomUUID}}",
+          "amount": "{{$randomPrice}}",
+          "reference": "{{$randomLoremSentence}}",
+          "date": "{{$randomDateRecent}}"
+        }
+      },
+      "200OK5": {
+        "title": "200OK5",
+        "required": [
+          "transaction"
+        ],
+        "type": "object",
+        "properties": {
+          "transaction": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "transaction": "complete"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Statement"
+    },
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Create"
+    },
+    {
+      "name": "Read"
+    },
+    {
+      "name": "Update"
+    },
+    {
+      "name": "Delete"
+    },
+    {
+      "name": "Payees"
+    },
+    {
+      "name": "Limits"
+    },
+    {
+      "name": "Payments"
+    }
+  ]
+}
