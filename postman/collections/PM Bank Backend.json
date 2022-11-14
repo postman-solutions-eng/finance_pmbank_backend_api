@@ -1,0 +1,2471 @@
+{
+	"info": {
+		"_postman_id": "8cde4b63-3866-4f4d-b106-e1106c703a20",
+		"name": "PM Bank Backend",
+		"description": "Welcome to the PM Bank Postman Public Workspace! \nOur Bank Account API helps introduces the ability for user management and money transfer services via our APIs.\n\n![Imgur](https://i.imgur.com/lSrdUFr.png)\n\nWe are transitioning to an API-First development and will plan to follow the best practices of Open Banking.\n\nWhat Open Banking will Achieve\nOpen Banking allows account holders to seamlessly and securely link their bank account information with their platform or apps of choice.\n\nThrough the Open Banking API, a fintech can quickly create secure and personalized products and apps for its customers. While you can get access to our sandbox to start testing Open Banking in minutes, you would need to connect with real banks to be able to do real-life transactions.\n\nAll data presented here are dummy values.\n\n\n| Title           | Name        |\n| --------------- | ----------- |\n| Product Manager (Champion)| Ross        |\n| Chief Architect (Economic Buyer) | Chandler    |\n| QA Tester       | Rachel      |\n| Ops Engineer    | Phoebe      |\n| Security        | Joey       |\n| Technical Writer | Monica |\n| Developer | Mike |\n\n<h>\n\nEnable partner applications to securely originate same-day, standard ACH payment (credit) or collection (debit) requests.\n\n![Imgur](https://i.imgur.com/dlDs6Lu.jpg)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "16727226-8cde4b63-3866-4f4d-b106-e1106c703a20"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Statement",
+					"item": [
+						{
+							"name": "Latest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "71b9acb6-76f7-4de2-87b9-da8c6274b541",
+										"exec": [
+											"const res = pm.response.json();",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"const template = `",
+											"    <style>",
+											"        .summary ul {",
+											"            list-style-type: none;",
+											"        }",
+											"        .summary div {",
+											"            display: inline-block;",
+											"            width: 33%;",
+											"        }",
+											"    </style>",
+											"    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css\">",
+											"    <script src=\"https://code.jquery.com/jquery-3.5.1.min.js\"></script>",
+											"    <script src=\"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js\"></script>",
+											"    <h1>PM Credit Union</h1>",
+											"    <div class=\"summary\">",
+											"        <div>",
+											"            <ul>",
+											"                <li><strong>Statement: </strong> {{res.period}}</li>",
+											"                <li><strong>Opening balance: </strong> \\${{res.balance.opening}}</li>",
+											"                <li><strong>Closing balance: </strong> \\${{res.balance.closing}}</li>",
+											"            </ul>",
+											"        </div>",
+											"        <div>",
+											"            <ul>",
+											"                <li><strong>Account: </strong> {{accountNumber}}</li>",
+											"                <li><strong>Money in: </strong> \\${{res.money.in}}</li>",
+											"                <li><strong>Money out: </strong> \\${{res.money.out}}</li>",
+											"            </ul>",
+											"        </div>",
+											"    </div>",
+											"    <div class=\"table\">",
+											"        <table>",
+											"            <thead>",
+											"                <tr>",
+											"                    <th>Date</th>",
+											"                    <th>Type</th>",
+											"                    <th>Description</th>",
+											"                    <th>Amount</th>",
+											"                    <th>Balance</th>",
+											"                </tr>",
+											"            </thead>",
+											"            <tbody>",
+											"            {{#each res.transactions}}",
+											"                <tr>",
+											"                    <td>{{date}}</td>",
+											"                    <td>{{type}}</td>",
+											"                    <td>{{description}}</td>",
+											"                    <td>{{amount}}</td>",
+											"                    <td>{{balance}}</td>",
+											"                </tr>",
+											"            {{/each}}",
+											"            </tbody>",
+											"        </table>",
+											"    </div>",
+											"",
+											"    <script>",
+											"        $('table').DataTable()",
+											"    </script>",
+											"`",
+											"const accountNumber = pm.globals.get('accountNumber');",
+											"pm.visualizer.set(template, { res, accountNumber });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "11645200-0f35-4b84-8dee-a70bc8a4be43",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/latest",
+									"host": [
+										"{{aURL}}"
+									],
+									"path": [
+										"accounts",
+										"{{accountNumber}}",
+										"statement",
+										"latest"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e139f9b1-ebe4-4f05-a497-6600b805abfc",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/latest",
+											"host": [
+												"{{aURL}}"
+											],
+											"path": [
+												"accounts",
+												"{{accountNumber}}",
+												"statement",
+												"latest"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Date",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b5cce946-754a-4eea-a176-9dcb67e3a072",
+										"exec": [
+											"const res = pm.response.json();",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"const template = `",
+											"    <style>",
+											"        .summary ul {",
+											"            list-style-type: none;",
+											"        }",
+											"        .summary div {",
+											"            display: inline-block;",
+											"            width: 33%;",
+											"        }",
+											"    </style>",
+											"    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css\">",
+											"    <script src=\"https://code.jquery.com/jquery-3.5.1.min.js\"></script>",
+											"    <script src=\"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js\"></script>",
+											"    <h1>PM Credit Union</h1>",
+											"    <div class=\"summary\">",
+											"        <div>",
+											"            <ul>",
+											"                <li><strong>Statement: </strong> {{res.period}}</li>",
+											"                <li><strong>Opening balance: </strong> \\${{res.balance.opening}}</li>",
+											"                <li><strong>Closing balance: </strong> \\${{res.balance.closing}}</li>",
+											"            </ul>",
+											"        </div>",
+											"        <div>",
+											"            <ul>",
+											"                <li><strong>Account: </strong> {{accountNumber}}</li>",
+											"                <li><strong>Money in: </strong> \\${{res.money.in}}</li>",
+											"                <li><strong>Money out: </strong> \\${{res.money.out}}</li>",
+											"            </ul>",
+											"        </div>",
+											"    </div>",
+											"    <div class=\"table\">",
+											"        <table>",
+											"            <thead>",
+											"                <tr>",
+											"                    <th>Date</th>",
+											"                    <th>Type</th>",
+											"                    <th>Description</th>",
+											"                    <th>Amount</th>",
+											"                    <th>Balance</th>",
+											"                </tr>",
+											"            </thead>",
+											"            <tbody>",
+											"            {{#each res.transactions}}",
+											"                <tr>",
+											"                    <td>{{date}}</td>",
+											"                    <td>{{type}}</td>",
+											"                    <td>{{description}}</td>",
+											"                    <td>{{amount}}</td>",
+											"                    <td>{{balance}}</td>",
+											"                </tr>",
+											"            {{/each}}",
+											"            </tbody>",
+											"        </table>",
+											"    </div>",
+											"",
+											"    <script>",
+											"        $('table').DataTable()",
+											"    </script>",
+											"`",
+											"const accountNumber = pm.globals.get('accountNumber');",
+											"pm.visualizer.set(template, { res, accountNumber });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "42777970-52f5-47f7-8d2d-cfc2639a76e4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "from",
+											"value": "{{$randomDatePast}}",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "{{$randomDateRecent}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/accounts/{{accountNumber}}/statement/date",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"accounts",
+										"{{accountNumber}}",
+										"statement",
+										"date"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "daf2511b-6478-4ec2-8034-4ccaff0337e2",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/date",
+											"host": [
+												"{{aURL}}"
+											],
+											"path": [
+												"accounts",
+												"{{accountNumber}}",
+												"statement",
+												"date"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 14:30:25 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "x-srv-trace",
+											"value": "v=1;t=d33d68b932344fce"
+										},
+										{
+											"key": "x-srv-span",
+											"value": "v=1;s=210e5b055e5bd71e"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "120"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "119"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1623681083"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"period\": {\n        \"from\": \"{{$randomDatePast}}\",\n        \"to\": \"{{$randomDateRecent}}\"\n    },\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"id": "e91207a4-80b3-402f-9d49-bf22551dae40"
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d077c6c7-8da2-4847-ae99-8fc86cde1cba",
+								"exec": [
+									"const res = pm.response.json();",
+									"",
+									"pm.globals.set(\"accountNumber\", res.details.domestic.account);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "de01cabb-f143-49f9-ab14-55b2afe5d134",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"holder\": \"{{customerId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{aURL}}/accounts/create",
+							"host": [
+								"{{aURL}}"
+							],
+							"path": [
+								"accounts",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "163b2ff8-7a89-4035-b6d5-ad8d4d3b2cdb",
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"holder\": {\n        \"name\": {\n            \"first\": \"{{$randomFirstName}}\",\n            \"middle\": \"{{$randomFirstName}}\",\n            \"last\": \"{{$randomLastName}}\"\n        },\n        \"dob\": \"{{$randomDatePast}}\",\n        \"address\": {\n            \"street\": \"{{$randomStreetAddress}}\",\n            \"city\": \"{{$randomCity}}\",\n            \"country\": \"{{$randomCountry}}\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{aURL}}/accounts/create",
+									"host": [
+										"{{aURL}}"
+									],
+									"path": [
+										"accounts",
+										"create"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"{{$randomBankAccount}}\",\n            \"routing\": \"{{$randomBankAccount}}\"\n        },\n        \"international\": {\n            \"bic\": \"{{$randomBankAccountBic}}\",\n            \"iban\": \"{{$randomBankAccountIban}}\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Overview",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d06ec258-8e82-41ff-8050-cc9b269c01bd",
+								"exec": [
+									"const res = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"const template = `",
+									"    <style>",
+									"        .account-overview {",
+									"            width: 80%;",
+									"            margin: 0 auto;",
+									"            border: 1px solid black;",
+									"            padding: 10px;",
+									"        }",
+									"",
+									"        .account-overview div {",
+									"            display: inline-block;",
+									"            width: 31%;",
+									"            background: #efefef;",
+									"            padding: 20px;",
+									"            box-sizing: border-box;",
+									"            margin-right: 10px;",
+									"        }",
+									"",
+									"        .account-overview p {",
+									"            line-height: 0px;",
+									"            word-wrap: wrap;",
+									"        }",
+									"",
+									"        .account-overview ul {",
+									"            list-style-type: none;",
+									"        }",
+									"    </style>",
+									"    <div class=\"account-overview\">",
+									"        <h3>PM Credit Union</h3>",
+									"        <ul>",
+									"            <li><strong>Account type:</strong> {{res.type}}</li>",
+									"            <li><strong>Interest rate:</strong> {{res.interestRate}}%</li>",
+									"            <li><strong>Last statement date:</strong> {{res.lastStatementDate}}</li>",
+									"        </ul>",
+									"        <div>",
+									"            <h5>Balance</h5>",
+									"            <p><strong>Available:</strong> \\${{res.balance.available}}</p>",
+									"            <p><strong>Present:</strong> \\${{res.balance.present}}</p>",
+									"        </div>",
+									"        <div>",
+									"            <h5>Domestic details</h5>",
+									"            <p><strong>Account No:</strong> {{res.details.domestic.account}}</p>",
+									"            <p><strong>Routing No:</strong> {{res.details.domestic.routing}}</p>",
+									"        </div>",
+									"        <div>",
+									"            <h5>Intl details</h5>",
+									"            <p><strong>BIC:</strong> {{res.details.international.bic}}</p>",
+									"            <p><strong>IBAN:</strong> {{res.details.international.bic}}</p>",
+									"        </div>",
+									"    </div>",
+									"",
+									"",
+									"`",
+									"pm.visualizer.set(template, { res });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "deb72685-ae20-4982-8ca8-aba8582f95a1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{aURL}}/accounts/{{accountNumber}}/overview",
+							"host": [
+								"{{aURL}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountNumber}}",
+								"overview"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1a19b8e8-6afb-49d5-ab5f-e798a4510ab8",
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{aURL}}/accounts/{{accountNumber}}/overview",
+									"host": [
+										"{{aURL}}"
+									],
+									"path": [
+										"accounts",
+										"{{accountNumber}}",
+										"overview"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"balance\": {\n        \"available\": {{$randomPrice}},\n        \"present\": {{$randomPrice}}\n    },\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"{{$randomBankAccount}}\",\n            \"routing\": \"{{$randomBankAccount}}\"\n        },\n        \"international\": {\n            \"bic\": \"{{$randomBankAccountBic}}\",\n            \"iban\": \"{{$randomBankAccountIban}}\"\n        }\n    },\n    \"interestRate\": 0.01,\n    \"lastStatementDate\": \"{{$randomDateRecent}}\"\n}"
+						}
+					]
+				}
+			],
+			"id": "f515b5c0-a5db-4745-b60c-f1a3fdaaf326"
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "New user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e195007-6028-4afd-8d4a-4843adb7a16a",
+										"exec": [
+											"const res = pm.response.json();",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test('API response is successful', () => {",
+											"    pm.expect(res.status).to.eql('success');",
+											"});",
+											"",
+											"pm.test('Created user has correct type of user ID', () => {",
+											"    pm.expect(res.id).to.be.a('string');",
+											"});",
+											"",
+											"pm.test('Does not expose user password', () => {",
+											"    pm.expect(res).to.not.have.property('password');",
+											"});",
+											"",
+											"pm.test('Created user has all relevant fields', () => {",
+											"    pm.expect(res).to.have.all.keys('status', 'id', 'firstName', 'lastName');",
+											"});",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/delete?id=${res.id}`,",
+											"    method: 'delete'",
+											"});",
+											"",
+											"function rawToObject (str) {",
+											"    return str.split('&').reduce((prev, curr, i, arr) => {",
+											"        var p = curr.split('=');",
+											"        prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);",
+											"        return prev;",
+											"    }, {});",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "eca696e3-571d-4eb2-94fd-9a5885c94b69",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "71d45169-a387-495a-82e1-69e650319802",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstName",
+											"value": "{{$randomFirstName}}",
+											"description": "The user's first name (required)",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "{{$randomLastName}}",
+											"description": "The user's last name (required)",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{cURL}}/create",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"create"
+									]
+								},
+								"description": "Creates a new user in the system. The user will be assigned an ID automatically. This can be found in the response."
+							},
+							"response": [
+								{
+									"id": "30153109-4e0b-40a4-80d5-bc57f6729876",
+									"name": "New user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "firstName",
+													"value": "{{firstName}}",
+													"description": "The user's first name (required)",
+													"type": "text"
+												},
+												{
+													"key": "lastName",
+													"value": "{{lastName}}",
+													"description": "The user's last name (required)",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "{{password}}",
+													"description": "The user's password (required)",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{cURL}}/create",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "101"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 10 Jan 2019 23:58:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"firstName\": \"Ben\",\n    \"lastName\": \"Smith\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n}"
+								}
+							]
+						}
+					],
+					"id": "090bd66f-8ceb-4bdf-a009-2471fdb920da"
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Get all users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8ea0354a-a731-401c-bc27-2f97b2306adf",
+										"exec": [
+											"const res = pm.response.json();",
+											"const id = pm.globals.get('id');",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test('One user exists', () => {",
+											"   pm.expect(res).to.have.length(2);",
+											"});",
+											"",
+											"pm.test('User has all relevant fields', () => {",
+											"    res.forEach((val, i) => {",
+											"        if (i > 0) {",
+											"            pm.expect(val).to.have.all.keys('id', 'firstName', 'lastName');",
+											"            ",
+											"        }",
+											"    });",
+											"});",
+											"",
+											"pm.test('User passwords are not exposed', () => {",
+											"    res.forEach((val) => {",
+											"       pm.expect(val).to.not.have.property('password');",
+											"    });",
+											"});",
+											"",
+											"// cleanup",
+											"pm.globals.unset('id');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+											"    method: 'delete'",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const res = pm.response.json();",
+										"const id = pm.globals.get('id');",
+										"",
+										"pm.test('Status code is 200', () => {",
+										"    pm.response.to.have.status(200);",
+										"});",
+										"",
+										"pm.test('One user exists', () => {",
+										"   pm.expect(res).to.have.length(2);",
+										"});",
+										"",
+										"pm.test('User has all relevant fields', () => {",
+										"    res.forEach((val, i) => {",
+										"        if (i > 0) {",
+										"            pm.expect(val).to.have.all.keys('id', 'firstName', 'lastName');",
+										"            ",
+										"        }",
+										"    });",
+										"});",
+										"",
+										"pm.test('User passwords are not exposed', () => {",
+										"    res.forEach((val) => {",
+										"       pm.expect(val).to.not.have.property('password');",
+										"    });",
+										"});",
+										"",
+										"// cleanup",
+										"pm.globals.unset('id');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+										"    method: 'delete'",
+										"});"
+									]
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "89a93860-7322-4fcf-a887-4f424cf6964b",
+										"exec": [
+											"const firstName = pm.variables.get('firstName');",
+											"const lastName = pm.variables.get('lastName');",
+											"const password = pm.variables.get('password');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/create`,",
+											"    method: 'POST',",
+											"    header: 'Content-Type:application/x-www-form-urlencoded',",
+											"    body: {",
+											"        mode: 'raw',",
+											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"    }",
+											"}, (err, res) => {",
+											"    res = res.json();",
+											"    pm.globals.set('id', res.id);",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const firstName = pm.variables.get('firstName');",
+										"const lastName = pm.variables.get('lastName');",
+										"const password = pm.variables.get('password');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/create`,",
+										"    method: 'POST',",
+										"    header: 'Content-Type:application/x-www-form-urlencoded',",
+										"    body: {",
+										"        mode: 'raw',",
+										"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+										"    }",
+										"}, (err, res) => {",
+										"    res = res.json();",
+										"    pm.globals.set('id', res.id);",
+										"});"
+									]
+								}
+							],
+							"id": "ba4650c8-5940-4fd1-a0a6-46625286ee74",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "key",
+										"value": "{{key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cURL}}/get?all=true",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"get"
+									],
+									"query": [
+										{
+											"key": "all",
+											"value": "true"
+										}
+									]
+								},
+								"description": "Get all users in the system."
+							},
+							"response": [
+								{
+									"id": "fab9acff-0232-43b7-aa31-8fcbb6e8befe",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{cURL}}/get?all=true",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"get"
+											],
+											"query": [
+												{
+													"key": "all",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "105"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:00:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"status\": \"success\"\n    },\n    {\n        \"firstName\": \"Ben\",\n        \"lastName\": \"Smith\",\n        \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get user by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0c82318e-cec7-49c3-a740-17c72919bc84",
+										"exec": [
+											"const res = pm.response.json();",
+											"const id = pm.globals.get('id');",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test('User matches requested user', () => {",
+											"    const id = pm.request.url.query.get('id');",
+											"    pm.expect(res[1].id).to.eql(id);",
+											"});",
+											"",
+											"pm.test('User has correct type of user ID', () => {",
+											"    pm.expect(res[1].id).to.be.a('string');",
+											"});",
+											"",
+											"pm.test('Does not expose user password', () => {",
+											"    pm.expect(res[1]).to.not.have.property('password');",
+											"});",
+											"",
+											"pm.test('User has all relevant fields', () => {",
+											"    pm.expect(res[1]).to.have.all.keys('id', 'firstName', 'lastName');",
+											"});",
+											"",
+											"// cleanup",
+											"pm.globals.unset('id');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+											"    method: 'delete'",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const res = pm.response.json();",
+										"const id = pm.globals.get('id');",
+										"",
+										"pm.test('Status code is 200', () => {",
+										"    pm.response.to.have.status(200);",
+										"});",
+										"",
+										"pm.test('User matches requested user', () => {",
+										"    const id = pm.request.url.query.get('id');",
+										"    pm.expect(res[1].id).to.eql(id);",
+										"});",
+										"",
+										"pm.test('User has correct type of user ID', () => {",
+										"    pm.expect(res[1].id).to.be.a('string');",
+										"});",
+										"",
+										"pm.test('Does not expose user password', () => {",
+										"    pm.expect(res[1]).to.not.have.property('password');",
+										"});",
+										"",
+										"pm.test('User has all relevant fields', () => {",
+										"    pm.expect(res[1]).to.have.all.keys('id', 'firstName', 'lastName');",
+										"});",
+										"",
+										"// cleanup",
+										"pm.globals.unset('id');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+										"    method: 'delete'",
+										"});"
+									]
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "02b7be46-3df7-4b34-a6d7-75e0a19928c7",
+										"exec": [
+											"const firstName = pm.variables.get('firstName');",
+											"const lastName = pm.variables.get('lastName');",
+											"const password = pm.variables.get('password');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/create`,",
+											"    method: 'POST',",
+											"    header: 'Content-Type:application/x-www-form-urlencoded',",
+											"    body: {",
+											"        mode: 'raw',",
+											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"    }",
+											"}, (err, res) => {",
+											"    res = res.json();",
+											"    pm.globals.set('id', res.id);",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const firstName = pm.variables.get('firstName');",
+										"const lastName = pm.variables.get('lastName');",
+										"const password = pm.variables.get('password');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/create`,",
+										"    method: 'POST',",
+										"    header: 'Content-Type:application/x-www-form-urlencoded',",
+										"    body: {",
+										"        mode: 'raw',",
+										"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+										"    }",
+										"}, (err, res) => {",
+										"    res = res.json();",
+										"    pm.globals.set('id', res.id);",
+										"});"
+									]
+								}
+							],
+							"id": "6c757b91-cd86-43fe-875f-9827d3868783",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-mock-response-name",
+										"value": "Get user by ID",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cURL}}/get/?id={{id}}",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"get",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{id}}",
+											"description": "The user's ID (required)"
+										}
+									]
+								},
+								"description": "Retrieves a user by `id`."
+							},
+							"response": [
+								{
+									"id": "89923c0d-411c-4462-bf63-37bd78dca36d",
+									"name": "Get user by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{cURL}}/get/?id={{id}}",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"get",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "{{id}}",
+													"description": "The user's ID (required)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "105"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"69-PWyeF3E5khoqlHSeQl62TwtxWks\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:03:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"status\": \"success\"\n    },\n    {\n        \"firstName\": \"Ben\",\n        \"lastName\": \"Smith\",\n        \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n    }\n]"
+								},
+								{
+									"id": "639a69c0-6acd-4d03-9cca-31b90d13b2c4",
+									"name": "Get user by ID (no user found)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{cURL}}/get/?id={{id}}",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"get",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "{{id}}",
+													"description": "The user's ID (required)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-+nHORFhZtwqol4/kZqGURIjn3RE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:39:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"no user found\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get users by last name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6f5806c0-1fa3-430c-a765-6a37a7b0b26e",
+										"exec": [
+											"const res = pm.response.json();",
+											"const id = pm.globals.get('id');",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test('List of users is returned', () => {",
+											"    pm.expect(res).to.be.an('array');",
+											"});",
+											"",
+											"pm.test('User passwords are not exposed', () => {",
+											"    res.forEach((val, i) => {",
+											"        if (i > 0) {",
+											"            pm.expect(val).to.not.have.all.keys('password');   ",
+											"        }",
+											"    });",
+											"});",
+											"",
+											"pm.test('User has all relevant fields and correct types', () => {",
+											"    res.forEach((val, i) => {",
+											"        if (i > 0) {",
+											"            pm.expect(val.id).to.be.a('string');",
+											"            pm.expect(val.firstName).to.be.a('string');",
+											"            pm.expect(val.lastName).to.be.a('string');",
+											"        }",
+											"    });",
+											"});",
+											"",
+											"// cleanup",
+											"pm.globals.unset('id');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+											"    method: 'delete'",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const res = pm.response.json();",
+										"const id = pm.globals.get('id');",
+										"const firstName = pm.variables.get('firstName');",
+										"",
+										"pm.test('Status code is 200', () => {",
+										"    pm.response.to.have.status(200);",
+										"});",
+										"",
+										"pm.test('List of users is returned', () => {",
+										"    pm.expect(res).to.be.an('array');",
+										"});",
+										"",
+										"pm.test('All users have firstname: ' + firstName, () => {",
+										"    res.forEach((val, i) => {",
+										"        if (i > 0) {",
+										"            pm.expect(val.firstName).to.eql(firstName);   ",
+										"        }",
+										"    });",
+										"});",
+										"",
+										"pm.test('User passwords are not exposed', () => {",
+										"    res.forEach((val, i) => {",
+										"        if (i > 0) {",
+										"            pm.expect(val).to.not.have.all.keys('password');   ",
+										"        }",
+										"    });",
+										"});",
+										"",
+										"pm.test('User has all relevant fields and correct types', () => {",
+										"    res.forEach((val, i) => {",
+										"        if (i > 0) {",
+										"            pm.expect(val.id).to.be.a('string');",
+										"            pm.expect(val.firstName).to.be.a('string');",
+										"            pm.expect(val.lastName).to.be.a('string');",
+										"        }",
+										"    });",
+										"});",
+										"",
+										"// cleanup",
+										"pm.globals.unset('id');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+										"    method: 'delete'",
+										"});"
+									]
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d04bd884-7e19-4394-a004-9e22cf5e01ff",
+										"exec": [
+											"const firstName = pm.variables.get('firstName');",
+											"const lastName = pm.variables.get('lastName');",
+											"const password = pm.variables.get('password');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/create`,",
+											"    method: 'POST',",
+											"    header: 'Content-Type:application/x-www-form-urlencoded',",
+											"    body: {",
+											"        mode: 'raw',",
+											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"    }",
+											"}, (err, res) => {",
+											"    res = res.json();",
+											"    pm.globals.set('id', res.id);",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const firstName = pm.variables.get('firstName');",
+										"const lastName = pm.variables.get('lastName');",
+										"const password = pm.variables.get('password');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/create`,",
+										"    method: 'POST',",
+										"    header: 'Content-Type:application/x-www-form-urlencoded',",
+										"    body: {",
+										"        mode: 'raw',",
+										"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+										"    }",
+										"}, (err, res) => {",
+										"    res = res.json();",
+										"    pm.globals.set('id', res.id);",
+										"});"
+									]
+								}
+							],
+							"id": "4f68a784-37e5-4e98-b185-e3b8bd6c24dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cURL}}/get/?firstName={{$randomLastName}}",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"get",
+										""
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "{{$randomLastName}}",
+											"description": "The user's first name (required)"
+										}
+									]
+								},
+								"description": "Retrieves all users with the given `firstName`."
+							},
+							"response": [
+								{
+									"id": "3c13b4d9-284b-49f8-b8ad-65884fba94bc",
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{cURL}}/get/?firstName={{firstName}}",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"get",
+												""
+											],
+											"query": [
+												{
+													"key": "firstName",
+													"value": "{{firstName}}",
+													"description": "The user's first name (required)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "105"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"69-F/ktIhtM5We/sndYYNUK1vmdEnQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:05:34 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"status\": \"success\"\n    },\n    {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\",\n        \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n    }\n]"
+								}
+							]
+						}
+					],
+					"id": "41db4a1d-d8c3-41e0-965a-85ef3df529e4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								],
+								"id": "c803e257-7460-46d9-887d-675e77aecfc7"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log('hi from folder')"
+								],
+								"id": "70dc0171-1d99-42d5-aa54-3f6a51510be9"
+							}
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba317be7-54f2-479e-a8b2-d929db952eff",
+										"exec": [
+											"const res = pm.response.json();",
+											"const id = pm.request.url.query.get('id');",
+											"const firstName = pm.request.body.urlencoded.get('firstName');",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"if (res.status === 'success') {",
+											"    pm.test('User matches requested user', () => {",
+											"        pm.expect(res.id).to.eql(id);",
+											"    });",
+											"    ",
+											"    pm.test('User has correct type of user ID', () => {",
+											"        pm.expect(res.id).to.be.a('string');",
+											"    });",
+											"    ",
+											"    pm.test('User has all relevant fields', () => {",
+											"        pm.expect(res).to.have.all.keys('status', 'id', 'firstName', 'lastName');",
+											"    });",
+											"    ",
+											"    pm.test('Does not expose user password', () => {",
+											"        pm.expect(res).to.not.have.property('password');",
+											"    });",
+											"    ",
+											"    pm.test('First name is updated to: ' + firstName, () => {",
+											"        pm.expect(res.firstName).to.eql(firstName);",
+											"    });",
+											"}",
+											"",
+											"else if (res.status === 'no user found') {",
+											"    pm.test('Lookup was against correct user', () => {",
+											"        pm.expect(res.id).to.eql(id);",
+											"    });",
+											"}",
+											"",
+											"else {",
+											"    pm.test(res.status).to.eql('invalid request');",
+											"}",
+											"",
+											"// cleanup",
+											"pm.globals.unset('id');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+											"    method: 'delete'",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const res = pm.response.json();",
+										"const id = pm.request.url.query.get('id');",
+										"const firstName = pm.request.body.urlencoded.get('firstName');",
+										"",
+										"pm.test('Status code is 200', () => {",
+										"    pm.response.to.have.status(200);",
+										"});",
+										"",
+										"if (res.status === 'success') {",
+										"    pm.test('User matches requested user', () => {",
+										"        pm.expect(res.id).to.eql(id);",
+										"    });",
+										"    ",
+										"    pm.test('User has correct type of user ID', () => {",
+										"        pm.expect(res.id).to.be.a('string');",
+										"    });",
+										"    ",
+										"    pm.test('User has all relevant fields', () => {",
+										"        pm.expect(res).to.have.all.keys('status', 'id', 'firstName', 'lastName');",
+										"    });",
+										"    ",
+										"    pm.test('Does not expose user password', () => {",
+										"        pm.expect(res).to.not.have.property('password');",
+										"    });",
+										"    ",
+										"    pm.test('First name is updated to: ' + firstName, () => {",
+										"        pm.expect(res.firstName).to.eql(firstName);",
+										"    });",
+										"}",
+										"",
+										"else if (res.status === 'no user found') {",
+										"    pm.test('Lookup was against correct user', () => {",
+										"        pm.expect(res.id).to.eql(id);",
+										"    });",
+										"}",
+										"",
+										"else {",
+										"    pm.test(res.status).to.eql('invalid request');",
+										"}",
+										"",
+										"// cleanup",
+										"pm.globals.unset('id');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/delete?id=${id}`,",
+										"    method: 'delete'",
+										"});"
+									]
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "120ddb73-1764-4e98-9d6e-1d7bf396a95a",
+										"exec": [
+											"const firstName = pm.variables.get('firstName');",
+											"const lastName = pm.variables.get('lastName');",
+											"const password = pm.variables.get('password');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/create`,",
+											"    method: 'POST',",
+											"    header: 'Content-Type:application/x-www-form-urlencoded',",
+											"    body: {",
+											"        mode: 'raw',",
+											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"    }",
+											"}, (err, res) => {",
+											"    res = res.json();",
+											"    pm.globals.set('id', res.id);",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const firstName = pm.variables.get('firstName');",
+										"const lastName = pm.variables.get('lastName');",
+										"const password = pm.variables.get('password');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/create`,",
+										"    method: 'POST',",
+										"    header: 'Content-Type:application/x-www-form-urlencoded',",
+										"    body: {",
+										"        mode: 'raw',",
+										"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+										"    }",
+										"}, (err, res) => {",
+										"    res = res.json();",
+										"    pm.globals.set('id', res.id);",
+										"});"
+									]
+								}
+							],
+							"id": "fa49b6f5-2312-46f8-9f85-5c386863dc1e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstName",
+											"value": "Benjamin",
+											"description": "The user's new first name",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "foobar",
+											"description": "The user's new password",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{cURL}}/update?id={{id}}",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"update"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{id}}",
+											"description": "The user's ID (required)"
+										}
+									]
+								},
+								"description": "Send the keys that you'd like to update, this can be one or more of `firstName`, `lastName` and `password`."
+							},
+							"response": [
+								{
+									"id": "b2bcfca1-7294-43f2-9276-f59c802d3f15",
+									"name": "Update user",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "firstName",
+													"value": "Benjamin",
+													"description": "The user's new first name",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "foobar",
+													"description": "The user's new password",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{cURL}}/update?id={{id}}",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"update"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "{{id}}",
+													"description": "The user's ID (required)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "106"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:18:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"firstName\": \"Benjamin\",\n    \"lastName\": \"Smith\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n}"
+								}
+							]
+						}
+					],
+					"id": "1e956d5f-dc82-4eb2-90b9-cd3964cf299a"
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9e579bbc-87f3-40c4-a361-ccc473dfc0c2",
+										"exec": [
+											"const response = pm.response;",
+											"const id = pm.globals.get('id');",
+											"",
+											"pm.test('Status code is 200', () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test('Operation is successful', () => {",
+											"    const res = response.json();",
+											"    pm.expect(res.status).to.eql('success');",
+											"});",
+											"",
+											"pm.test('User matches requested user', () => {",
+											"    const res = response.json();",
+											"    pm.expect(res.id).to.eql(id);",
+											"});",
+											"",
+											"pm.test('User can no longer be found', () => {",
+											"    pm.sendRequest({",
+											"        url: `${pm.environment.get('url')}/get?id=${id}`,",
+											"        header: 'x-mock-response-name:Get user by ID (no user found)',",
+											"        method: 'get'",
+											"    }, (err, res) => {",
+											"        res = res.json();",
+											"        pm.expect(res.status).to.eql('no user found');",
+											"    });",
+											"});",
+											"",
+											"// cleanup",
+											"pm.globals.unset('id');"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const response = pm.response;",
+										"const id = pm.globals.get('id');",
+										"",
+										"pm.test('Status code is 200', () => {",
+										"    pm.response.to.have.status(200);",
+										"});",
+										"",
+										"pm.test('Operation is successful', () => {",
+										"    const res = response.json();",
+										"    pm.expect(res.status).to.eql('success');",
+										"});",
+										"",
+										"pm.test('User matches requested user', () => {",
+										"    const res = response.json();",
+										"    pm.globals.set(\"apiKey\", res.id);",
+										"    pm.expect(res.id).to.eql(id);",
+										"});",
+										"",
+										"pm.test('User can no longer be found', () => {",
+										"    pm.sendRequest({",
+										"        url: `${pm.environment.get('url')}/get?id=${id}`,",
+										"        header: 'x-mock-response-name:Get user by ID (no user found)',",
+										"        method: 'get'",
+										"    }, (err, res) => {",
+										"        res = res.json();",
+										"        pm.expect(res.status).to.eql('no user found');",
+										"    });",
+										"});",
+										"",
+										"// cleanup",
+										"pm.globals.unset('id');"
+									]
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7a979d82-ec44-4ef1-a2dd-f80ceb84c69b",
+										"exec": [
+											"const firstName = pm.variables.get('firstName');",
+											"const lastName = pm.variables.get('lastName');",
+											"const password = pm.variables.get('password');",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.environment.get('url')}/create`,",
+											"    method: 'POST',",
+											"    header: 'Content-Type:application/x-www-form-urlencoded',",
+											"    body: {",
+											"        mode: 'raw',",
+											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"    }",
+											"}, (err, res) => {",
+											"    res = res.json();",
+											"    pm.globals.set('id', res.id);",
+											"});"
+										],
+										"type": "text/javascript"
+									},
+									"exec": [
+										"const firstName = pm.variables.get('firstName');",
+										"const lastName = pm.variables.get('lastName');",
+										"const password = pm.variables.get('password');",
+										"",
+										"pm.sendRequest({",
+										"    url: `${pm.environment.get('url')}/create`,",
+										"    method: 'POST',",
+										"    header: 'Content-Type:application/x-www-form-urlencoded',",
+										"    body: {",
+										"        mode: 'raw',",
+										"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+										"    }",
+										"}, (err, res) => {",
+										"    res = res.json();",
+										"    pm.globals.set('id', res.id);",
+										"});"
+									]
+								}
+							],
+							"id": "1502de85-a0e3-4d2d-9ea4-1bf88fb811c3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{cURL}}/delete?id={{id}}",
+									"host": [
+										"{{cURL}}"
+									],
+									"path": [
+										"delete"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{id}}",
+											"description": "The user's ID"
+										}
+									]
+								},
+								"description": "Deletes a user from the system by `id`."
+							},
+							"response": [
+								{
+									"id": "68287a88-dcf4-4f7f-b77f-cea196839b22",
+									"name": "Delete user",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{cURL}}/delete?id={{id}}",
+											"host": [
+												"{{cURL}}"
+											],
+											"path": [
+												"delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "{{id}}",
+													"description": "The user's ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Jan 2019 00:20:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n}"
+								}
+							]
+						}
+					],
+					"id": "309ba6a5-8b1a-4e51-b082-ec7e2ab9903b"
+				}
+			],
+			"id": "d9980d67-9832-4704-a1c2-e199e01649e6"
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Payees",
+					"item": [
+						{
+							"name": "List",
+							"id": "390a3a01-3087-499b-8b7c-8600e6c8dc46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pURL}}/payments/{{accountNumber}}/payees",
+									"host": [
+										"{{pURL}}"
+									],
+									"path": [
+										"payments",
+										"{{accountNumber}}",
+										"payees"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f880249f-63c1-4a1b-9d4c-a7c8dbba8371",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pURL}}/payments/{{accountNumber}}/payees",
+											"host": [
+												"{{pURL}}"
+											],
+											"path": [
+												"payments",
+												"{{accountNumber}}",
+												"payees"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Add",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8754d79c-0c25-4a65-beea-589a1d53d0e4",
+										"exec": [
+											"const res = pm.response.json()",
+											"",
+											"pm.globals.set(\"payeeId\", res.payeeId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "1967f7b3-83ec-4702-9333-582681210ec7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pURL}}/payments/{{accountNumber}}/payees/add",
+									"host": [
+										"{{pURL}}"
+									],
+									"path": [
+										"payments",
+										"{{accountNumber}}",
+										"payees",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d2329f76-8215-414b-af1f-98ed4a7df067",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pURL}}/payments/{{accountNumber}}/payees/add",
+											"host": [
+												"{{pURL}}"
+											],
+											"path": [
+												"payments",
+												"{{accountNumber}}",
+												"payees",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"payeeId\": \"{{$randomUUID}}\"\n}"
+								}
+							]
+						}
+					],
+					"id": "deba0979-aa83-49b4-9d20-4a1f1e3ea9d3"
+				},
+				{
+					"name": "Limits",
+					"item": [
+						{
+							"name": "Current",
+							"id": "a5e6633c-32b7-4c47-93b7-6ae182779b9e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+									"host": [
+										"{{pURL}}"
+									],
+									"path": [
+										"payments",
+										"{{accountNumber}}",
+										"limits"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "228a1445-d116-404a-952e-da5141659409",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+											"host": [
+												"{{pURL}}"
+											],
+											"path": [
+												"payments",
+												"{{accountNumber}}",
+												"limits"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"daily\": 30000\n}"
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ce4c6097-ebe0-4b2f-9a67-b20e119277c8",
+										"exec": [
+											"pm.globals.set(\"limit\", \"30000\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "3e04a472-41fa-4f45-9fb0-68d6f0d59236",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daily\": 30000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+									"host": [
+										"{{pURL}}"
+									],
+									"path": [
+										"payments",
+										"{{accountNumber}}",
+										"limits"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "55543806-74c8-4e32-a0cc-7bbcbb6640c5",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"daily\": 30000\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+											"host": [
+												"{{pURL}}"
+											],
+											"path": [
+												"payments",
+												"{{accountNumber}}",
+												"limits"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\"\n}"
+								}
+							]
+						}
+					],
+					"id": "6a68c3e5-63b6-4b2b-813a-557399ff5a20"
+				},
+				{
+					"name": "Transfer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34cc60b3-110f-4e7f-a0ea-7720d870de5f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "923a5686-9cc1-4214-9eb7-d4cfd5ff4329",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payeeId\": \"{{$randomUUID}}\",\n    \"amount\": \"{{$randomPrice}}\",\n    \"reference\": \"{{$randomLoremSentence}}\",\n    \"date\": \"{{$randomDateRecent}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pURL}}/payments/{{accountNumber}}/transfer",
+							"host": [
+								"{{pURL}}"
+							],
+							"path": [
+								"payments",
+								"{{accountNumber}}",
+								"transfer"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "55662422-5c8a-4d44-8287-c61c4326e23c",
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payeeId\": \"{{$randomUUID}}\",\n    \"amount\": \"{{$randomPrice}}\",\n    \"reference\": \"{{$randomLoremSentence}}\",\n    \"date\": \"{{$randomDateRecent}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pURL}}/payments/{{accountNumber}}/transfer",
+									"host": [
+										"{{pURL}}"
+									],
+									"path": [
+										"payments",
+										"{{accountNumber}}",
+										"transfer"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"transaction\": \"complete\"\n}"
+						}
+					]
+				}
+			],
+			"id": "f8ba9571-16e0-4e73-acc3-29267c8808cf"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5a2bae38-f4cc-49d9-834f-a240f92f2849",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f8b9ee60-9606-4e1f-b0d1-ad9a1193a5c9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b3f069d0-eab9-4b5d-968b-086fbfebcbf0",
+			"key": "aURL",
+			"value": "https://6cd87b50-0472-4e1a-a1a0-ea87b362df04.mock.pstmn.io"
+		},
+		{
+			"id": "8b6d5c9f-95a9-41c1-8ed6-7143b905152e",
+			"key": "cURL",
+			"value": "https://3f9ab1dc-fede-484c-b519-0cc8b90c827a.mock.pstmn.io"
+		},
+		{
+			"id": "31287146-f348-44a2-a27b-4cb6d92c9894",
+			"key": "pURL",
+			"value": "https://e3aa0861-fd18-4b61-8908-8abfceabbd9e.mock.pstmn.io"
+		}
+	]
+}

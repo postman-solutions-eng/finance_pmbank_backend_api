@@ -5,6 +5,7 @@ id = 72ca3020-0794-4cd2-8be2-ca7664a0dcb1
 
 [relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"16727226-8cde4b63-3866-4f4d-b106-e1106c703a20","path":"PM Bank Backend.json","metaData":{}}
 
 [relations.collections.metaData]
 
