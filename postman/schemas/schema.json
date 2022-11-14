@@ -2,7 +2,11 @@
   "openapi": "3.0.0",
   "info": {
     "title": "PMCU Backend",
-    "contact": {},
+    "contact": {
+      "email":"example@example.com",
+      "name": "postmanaut paul",
+      "url":"https://postman.com"
+    },
     "version": "1.0"
   },
   "servers": [
@@ -11,6 +15,9 @@
       "variables": {}
     }
   ],
+ "security": [
+   {"BasicAuth": []}
+ ],
   "paths": {
     "/accounts/{accountNumber}/statement/latest": {
       "get": {
@@ -1017,6 +1024,19 @@
     }
   },
   "components": {
+    "securitySchemes":[
+    {
+      "api_key":{
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    }},{
+    "BasicAuth":{      
+      "type": "http",
+      "scheme": "basic"
+      }
+    }
+    ],
     "schemas": {
       "CreateRequest": {
         "title": "CreateRequest",
