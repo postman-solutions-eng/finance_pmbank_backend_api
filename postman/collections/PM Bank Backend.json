@@ -1904,6 +1904,8 @@
 											"    }",
 											"}, (err, res) => {",
 											"    res = res.json();",
+											"    console.log(\"hi\")",
+											"    console.log(res)",
 											"    pm.globals.set('id', res.id);",
 											"});"
 										],
