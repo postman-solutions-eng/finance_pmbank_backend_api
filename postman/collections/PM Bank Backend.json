@@ -2442,7 +2442,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5a2bae38-f4cc-49d9-834f-a240f92f2849",
+				"id": "b15973b8-bdc2-4d19-81a9-ac78732dd568",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2452,7 +2452,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f8b9ee60-9606-4e1f-b0d1-ad9a1193a5c9",
+				"id": "8a441112-73a5-46ec-bf96-db66c905a5ff",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2462,19 +2462,30 @@
 	],
 	"variable": [
 		{
-			"id": "b3f069d0-eab9-4b5d-968b-086fbfebcbf0",
+			"id": "0bf633c9-f747-4fc6-8e71-78fe57831b39",
 			"key": "aURL",
 			"value": "https://6cd87b50-0472-4e1a-a1a0-ea87b362df04.mock.pstmn.io"
 		},
 		{
-			"id": "8b6d5c9f-95a9-41c1-8ed6-7143b905152e",
+			"id": "277cf296-8471-4a81-a162-b0c5b039ab1d",
 			"key": "cURL",
 			"value": "https://3f9ab1dc-fede-484c-b519-0cc8b90c827a.mock.pstmn.io"
 		},
 		{
-			"id": "31287146-f348-44a2-a27b-4cb6d92c9894",
+			"id": "75db147f-322b-4ec2-aafa-dd13aadf16e8",
 			"key": "pURL",
 			"value": "https://e3aa0861-fd18-4b61-8908-8abfceabbd9e.mock.pstmn.io"
+		},
+		{
+			"id": "c1f88698-ee58-4153-837e-d21651585f62",
+			"key": "https://dd98b520-6842-468f-a04b-9835ee882a51.mock.pstmn.io",
+			"value": ""
+		},
+		{
+			"id": "1754d57c-853b-458a-9f3d-1cd0f324d609",
+			"key": "pmBankBackendUrl",
+			"value": "https://dd98b520-6842-468f-a04b-9835ee882a51.mock.pstmn.io",
+			"type": "string"
 		}
 	]
 }
