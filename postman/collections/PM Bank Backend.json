@@ -268,9 +268,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/accounts/{{accountNumber}}/statement/date",
+									"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/date",
 									"host": [
-										"{{url}}"
+										"{{aURL}}"
 									],
 									"path": [
 										"accounts",
@@ -875,18 +875,18 @@
 											"const lastName = pm.variables.get('lastName');",
 											"const password = pm.variables.get('password');",
 											"",
-											"pm.sendRequest({",
-											"    url: `${pm.environment.get('url')}/create`,",
-											"    method: 'POST',",
-											"    header: 'Content-Type:application/x-www-form-urlencoded',",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
-											"    }",
-											"}, (err, res) => {",
-											"    res = res.json();",
-											"    pm.globals.set('id', res.id);",
-											"});"
+											"// pm.sendRequest({",
+											"//     url: 'pm.environment.get(\"url\")' + '/create', //`${pm.environment.get('url')}/create`,",
+											"//     method: 'POST',",
+											"//     header: 'Content-Type:application/x-www-form-urlencoded',",
+											"//     body: {",
+											"//         mode: 'raw',",
+											"//         raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"//     }",
+											"// }, (err, res) => {",
+											"//     res = res.json();",
+											"//     pm.globals.set('id', res.id);",
+											"// });"
 										],
 										"type": "text/javascript"
 									},
@@ -996,7 +996,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n    {\n        \"status\": \"success\"\n    },\n    {\n        \"firstName\": \"Ben\",\n        \"lastName\": \"Smith\",\n        \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\"\n    }\n]"
+									"body": "[\n    {\n        \"status\": \"success\"\n    },\n    {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\",\n        \"id\": {{$randomUUID}} \n    }\n]"
 								}
 							]
 						},
@@ -1085,18 +1085,18 @@
 											"const lastName = pm.variables.get('lastName');",
 											"const password = pm.variables.get('password');",
 											"",
-											"pm.sendRequest({",
-											"    url: `${pm.environment.get('url')}/create`,",
-											"    method: 'POST',",
-											"    header: 'Content-Type:application/x-www-form-urlencoded',",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
-											"    }",
-											"}, (err, res) => {",
-											"    res = res.json();",
-											"    pm.globals.set('id', res.id);",
-											"});"
+											"// pm.sendRequest({",
+											"//     url: `${pm.environment.get('url')}/create`,",
+											"//     method: 'POST',",
+											"//     header: 'Content-Type:application/x-www-form-urlencoded',",
+											"//     body: {",
+											"//         mode: 'raw',",
+											"//         raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"//     }",
+											"// }, (err, res) => {",
+											"//     res = res.json();",
+											"//     pm.globals.set('id', res.id);",
+											"// });"
 										],
 										"type": "text/javascript"
 									},
@@ -1371,18 +1371,18 @@
 											"const lastName = pm.variables.get('lastName');",
 											"const password = pm.variables.get('password');",
 											"",
-											"pm.sendRequest({",
-											"    url: `${pm.environment.get('url')}/create`,",
-											"    method: 'POST',",
-											"    header: 'Content-Type:application/x-www-form-urlencoded',",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
-											"    }",
-											"}, (err, res) => {",
-											"    res = res.json();",
-											"    pm.globals.set('id', res.id);",
-											"});"
+											"// pm.sendRequest({",
+											"//     url: `${pm.environment.get('url')}/create`,",
+											"//     method: 'POST',",
+											"//     header: 'Content-Type:application/x-www-form-urlencoded',",
+											"//     body: {",
+											"//         mode: 'raw',",
+											"//         raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"//     }",
+											"// }, (err, res) => {",
+											"//     res = res.json();",
+											"//     pm.globals.set('id', res.id);",
+											"// });"
 										],
 										"type": "text/javascript"
 									},
@@ -1636,18 +1636,18 @@
 											"const lastName = pm.variables.get('lastName');",
 											"const password = pm.variables.get('password');",
 											"",
-											"pm.sendRequest({",
-											"    url: `${pm.environment.get('url')}/create`,",
-											"    method: 'POST',",
-											"    header: 'Content-Type:application/x-www-form-urlencoded',",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
-											"    }",
-											"}, (err, res) => {",
-											"    res = res.json();",
-											"    pm.globals.set('id', res.id);",
-											"});"
+											"// pm.sendRequest({",
+											"//     url: `${pm.environment.get('url')}/create`,",
+											"//     method: 'POST',",
+											"//     header: 'Content-Type:application/x-www-form-urlencoded',",
+											"//     body: {",
+											"//         mode: 'raw',",
+											"//         raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"//     }",
+											"// }, (err, res) => {",
+											"//     res = res.json();",
+											"//     pm.globals.set('id', res.id);",
+											"// });"
 										],
 										"type": "text/javascript"
 									},
@@ -1835,16 +1835,16 @@
 											"//     pm.expect(res.id).to.eql(id);",
 											"// });",
 											"",
-											"pm.test('User can no longer be found', () => {",
-											"    pm.sendRequest({",
-											"        url: `${pm.environment.get('url')}/get?id=${id}`,",
-											"        header: 'x-mock-response-name:Get user by ID (no user found)',",
-											"        method: 'get'",
-											"    }, (err, res) => {",
-											"        res = res.json();",
-											"        pm.expect(res.status).to.eql('no user found');",
-											"    });",
-											"});",
+											"// pm.test('User can no longer be found', () => {",
+											"//     pm.sendRequest({",
+											"//         url: `${pm.environment.get('url')}/get?id=${id}`,",
+											"//         header: 'x-mock-response-name:Get user by ID (no user found)',",
+											"//         method: 'get'",
+											"//     }, (err, res) => {",
+											"//         res = res.json();",
+											"//         pm.expect(res.status).to.eql('no user found');",
+											"//     });",
+											"// });",
 											"",
 											"// cleanup",
 											"pm.globals.unset('id');"
@@ -1894,20 +1894,18 @@
 											"const lastName = pm.variables.get('lastName');",
 											"const password = pm.variables.get('password');",
 											"",
-											"pm.sendRequest({",
-											"    url: `${pm.environment.get('url')}/create`,",
-											"    method: 'POST',",
-											"    header: 'Content-Type:application/x-www-form-urlencoded',",
-											"    body: {",
-											"        mode: 'raw',",
-											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
-											"    }",
-											"}, (err, res) => {",
-											"    res = res.json();",
-											"    console.log(\"hi\")",
-											"    console.log(res)",
-											"    pm.globals.set('id', res.id);",
-											"});"
+											"// pm.sendRequest({",
+											"//     url: `${pm.environment.get('url')}/create`,",
+											"//     method: 'POST',",
+											"//     header: 'Content-Type:application/x-www-form-urlencoded',",
+											"//     body: {",
+											"//         mode: 'raw',",
+											"//         raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
+											"//     }",
+											"// }, (err, res) => {",
+											"//     res = res.json();",
+											"//     pm.globals.set('id', res.id);",
+											"// });"
 										],
 										"type": "text/javascript"
 									},
@@ -2208,9 +2206,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+									"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
 									"host": [
-										"{{pURL}}"
+										"{{pmBankBackendUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2225,11 +2223,17 @@
 									"name": "200 OK",
 									"originalRequest": {
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "x-mock-response-name",
+												"value": "mock_limits",
+												"type": "text"
+											}
+										],
 										"url": {
-											"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+											"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
 											"host": [
-												"{{pURL}}"
+												"{{pmBankBackendUrl}}"
 											],
 											"path": [
 												"payments",
@@ -2238,10 +2242,13 @@
 											]
 										}
 									},
+									"status": "OK",
+									"code": 200,
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
 											"key": "Content-Type",
+											"name": "Content-Type",
 											"value": "application/json",
 											"description": "",
 											"type": "text"
@@ -2260,7 +2267,7 @@
 									"script": {
 										"id": "ce4c6097-ebe0-4b2f-9a67-b20e119277c8",
 										"exec": [
-											"pm.globals.set(\"limit\", \"30000\");"
+											"// pm.globals.set(\"limit\", \"30000\");"
 										],
 										"type": "text/javascript"
 									}
@@ -2283,9 +2290,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+									"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
 									"host": [
-										"{{pURL}}"
+										"{{pmBankBackendUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2311,9 +2318,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{pURL}}/payments/{{accountNumber}}/limits",
+											"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
 											"host": [
-												"{{pURL}}"
+												"{{pmBankBackendUrl}}"
 											],
 											"path": [
 												"payments",
@@ -2374,9 +2381,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{pURL}}/payments/{{accountNumber}}/transfer",
+							"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/transfer",
 							"host": [
-								"{{pURL}}"
+								"{{pmBankBackendUrl}}"
 							],
 							"path": [
 								"payments",
