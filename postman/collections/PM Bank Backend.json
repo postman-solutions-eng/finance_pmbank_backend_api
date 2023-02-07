@@ -2125,7 +2125,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}",
+									"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": \"{{$randomBankAccount}}\",\n    \"routing\": \"{{$randomBankAccount}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
