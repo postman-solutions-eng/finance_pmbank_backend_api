@@ -1,7 +1,13 @@
 {
   "openapi": "3.0.0",
   "info": {
+    "description": "Backend API for PMCU",
     "title": "PMCU Backend",
+    "license": {
+      "name": "BSD-1-clause",
+      "url": "https://opensource.org/license/bsd-1-clause/"
+    },
+    "termsOfService": "https://example.com/tos",
     "contact": {
       "email":"example@example.com",
       "name": "postmanaut paul",
@@ -11,16 +17,19 @@
   },
   "servers": [
     {
-      "url": "http://example.com",
+      "url": "https://example.com",
       "variables": {}
     }
   ],
  "security": [
-   {"BasicAuth": []}
+    {
+     "api_key": []
+    }
  ],
   "paths": {
     "/accounts/{accountNumber}/statement/latest": {
       "get": {
+        "description": "placholder description",
         "tags": [
           "Statement"
         ],
@@ -29,28 +38,42 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Account number example", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "path",
-            "description": "",
+            "description": "placholder description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Success"
+          },
           "default": {
             "description": "",
             "headers": {},
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/Example",
                   "type": "string",
                   "example": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
                 },
                 "example": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -58,6 +81,7 @@
     },
     "/accounts/{accountNumber}/statement/date": {
       "get": {
+        "description": "placholder description",
         "tags": [
           "Statement"
         ],
@@ -66,11 +90,18 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Account number example", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
@@ -83,6 +114,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Mon, 14 Jun 2021 14:30:25 GMT"
@@ -93,6 +125,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "chunked"
@@ -103,6 +136,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "close"
@@ -113,6 +147,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "nginx"
@@ -123,6 +158,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "v=1;t=d33d68b932344fce"
@@ -133,6 +169,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "v=1;s=210e5b055e5bd71e"
@@ -143,6 +180,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "*"
@@ -153,6 +191,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "120"
@@ -163,6 +202,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "119"
@@ -173,6 +213,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "1623681083"
@@ -183,6 +224,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
@@ -193,6 +235,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Accept-Encoding"
@@ -203,6 +246,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "gzip"
@@ -213,12 +257,16 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
+                  "$ref": "#/components/schemas/Example",
                   "type": "string",
                   "example": "{\n    \"period\": {\n        \"from\": \"{{$randomDatePast}}\",\n        \"to\": \"{{$randomDateRecent}}\"\n    },\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
                 },
                 "example": "{\n    \"period\": {\n        \"from\": \"{{$randomDatePast}}\",\n        \"to\": \"{{$randomDateRecent}}\"\n    },\n    \"balance\": {\n        \"opening\": {{$randomPrice}},\n        \"closing\": {{$randomPrice}}\n    },\n    \"money\": {\n        \"in\": {{$randomPrice}},\n        \"out\": {{$randomPrice}}\n    },\n    \"transactions\": [\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        },\n        {\n            \"date\": \"{{$randomDateRecent}}\",\n            \"description\": \"{{$randomCompanyName}}\",\n            \"type\": \"{{$randomTransactionType}}\",\n            \"amount\": {{$randomPrice}},\n            \"balance\": {{$randomPrice}}\n        }\n    ]\n}"
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -226,6 +274,7 @@
     },
     "/accounts/create": {
       "post": {
+        "description": "placholder description",
         "tags": [
           "Accounts"
         ],
@@ -248,6 +297,9 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "Success"
+          },
           "default": {
             "description": "",
             "headers": {},
@@ -271,6 +323,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -278,6 +333,7 @@
     },
     "/accounts/{accountNumber}/overview": {
       "get": {
+        "description": "placholder description",
         "tags": [
           "Accounts"
         ],
@@ -286,22 +342,36 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Account number example", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
           "default": {
             "description": "",
             "headers": {},
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/Example",
                   "type": "string",
                   "example": "{\n    \"type\": \"{{$randomBankAccountName}}\",\n    \"balance\": {\n        \"available\": {{$randomPrice}},\n        \"present\": {{$randomPrice}}\n    },\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"{{$randomBankAccount}}\",\n            \"routing\": \"{{$randomBankAccount}}\"\n        },\n        \"international\": {\n            \"bic\": \"{{$randomBankAccountBic}}\",\n            \"iban\": \"{{$randomBankAccountIban}}\"\n        }\n    },\n    \"interestRate\": 0.01,\n    \"lastStatementDate\": \"{{$randomDateRecent}}\"\n}"
                 },
@@ -324,11 +394,18 @@
         "parameters": [
           {
             "name": "Content-Type",
+            "examples": {
+              "id" : {
+                "summary": "Create a new user", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "header",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "application/x-www-form-urlencoded"
             }
@@ -337,8 +414,15 @@
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
+              "examples": {
+                "id" : {
+                  "summary": "Create a new user", 
+                  "externalValue": "1234-4321-1234-4321"
+                } 
+              },
               "encoding": {},
               "schema": {
+                "$ref": "#/components/schemas/Example",
                 "required": [
                   "firstName",
                   "lastName"
@@ -369,6 +453,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Express"
@@ -379,6 +464,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "101"
@@ -389,6 +475,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\""
@@ -399,6 +486,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Thu, 10 Jan 2019 23:58:59 GMT"
@@ -409,6 +497,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "keep-alive"
@@ -429,10 +518,17 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false,
-        "security": []
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/get": {
@@ -446,23 +542,37 @@
         "parameters": [
           {
             "name": "all",
+            "examples": {
+              "id" : {
+                "summary": "Get all users", 
+                "externalValue": "all-users"
+              } 
+            },
             "in": "query",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "form",
             "explode": true,
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "boolean",
               "example": true
             }
           },
           {
             "name": "key",
+            "examples": {
+              "id" : {
+                "summary": "Get all users", 
+                "externalValue": "all-users"
+              } 
+            },
             "in": "header",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "{{key}}"
             }
@@ -476,6 +586,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Express"
@@ -486,6 +597,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "105"
@@ -496,6 +608,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\""
@@ -506,6 +619,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Fri, 11 Jan 2019 00:00:53 GMT"
@@ -516,6 +630,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "keep-alive"
@@ -526,6 +641,9 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
+                  "$ref": "#/components/schemas/Example",
+                  "minItems": 1,
+                  "maxItems": 10000,
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/200OK1"
@@ -554,10 +672,17 @@
                 ]
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false,
-        "security": []
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/update": {
@@ -571,23 +696,37 @@
         "parameters": [
           {
             "name": "id",
+            "examples": {
+              "id" : {
+                "summary": "Update user", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "query",
             "description": "The user's ID (required)",
             "required": true,
             "style": "form",
             "explode": true,
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "{{id}}"
             }
           },
           {
             "name": "Content-Type",
+            "examples": {
+              "id" : {
+                "summary": "Update user", 
+                "externalValue": "1234-4321-1234-4321"
+              } 
+            },
             "in": "header",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "application/x-www-form-urlencoded"
             }
@@ -596,8 +735,15 @@
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
+              "examples": {
+                "id" : {
+                  "summary": "Update user", 
+                  "externalValue": "1234-4321-1234-4321"
+                } 
+              },
               "encoding": {},
               "schema": {
+                "$ref": "#/components/schemas/Example",
                 "required": [
                   "firstName"
                 ],
@@ -622,6 +768,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Express"
@@ -632,6 +779,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "106"
@@ -642,6 +790,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\""
@@ -652,6 +801,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Fri, 11 Jan 2019 00:18:07 GMT"
@@ -662,6 +812,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "keep-alive"
@@ -682,6 +833,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -698,23 +852,37 @@
         "parameters": [
           {
             "name": "id",
+            "examples": {
+              "id" : {
+                "summary": "Delete user", 
+                "externalValue": "1234-4321-1234-4321"
+              }
+            },
             "in": "query",
             "description": "The user's ID",
             "required": true,
             "style": "form",
             "explode": true,
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "{{id}}"
             }
           },
           {
             "name": "Content-Type",
+            "examples": {
+              "id" : {
+                "summary": "Delete user", 
+                "externalValue": "1234-4321-1234-4321"
+              }
+            },
             "in": "header",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string",
               "example": "text/plain"
             }
@@ -728,6 +896,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Express"
@@ -738,6 +907,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "64"
@@ -748,6 +918,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\""
@@ -758,6 +929,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "Fri, 11 Jan 2019 00:20:55 GMT"
@@ -768,6 +940,7 @@
                 "content": {
                   "text/plain": {
                     "schema": {
+                      "$ref": "#/components/schemas/Example",
                       "type": "string"
                     },
                     "example": "keep-alive"
@@ -786,6 +959,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -793,6 +969,7 @@
     },
     "/payments/{accountNumber}/payees": {
       "get": {
+        "description": "placholder description",
         "tags": [
           "Payees"
         ],
@@ -801,22 +978,36 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Get all payees", 
+                "externalValue": "all-payees"
+              }
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
           "default": {
             "description": "",
             "headers": {},
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/Example",
                   "type": "string",
                   "example": "[\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    },\n    {\n        \"name\": \"{{$randomFullName}}\",\n        \"checking\": {{$randomBankAccount}},\n        \"routing\": {{$randomBankAccount}}\n    }\n]"
                 },
@@ -830,6 +1021,7 @@
     },
     "/payments/{accountNumber}/payees/add": {
       "post": {
+        "description": "placholder description",
         "tags": [
           "Payees"
         ],
@@ -838,11 +1030,18 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Add a payee", 
+                "externalValue": "add-payee"
+              }
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
@@ -852,6 +1051,7 @@
           "content": {
             "text/plain": {
               "schema": {
+                "$ref": "#/components/schemas/Example",
                 "type": "string",
                 "example": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"checking\": {{$randomBankAccount}},\n    \"routing\": {{$randomBankAccount}}\n}"
               },
@@ -874,6 +1074,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -881,6 +1084,7 @@
     },
     "/payments/{accountNumber}/limits": {
       "get": {
+        "description": "placholder description",
         "tags": [
           "Limits"
         ],
@@ -889,16 +1093,29 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Add a payee", 
+                "externalValue": "add-payee"
+              }
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
           "default": {
             "description": "",
             "headers": {},
@@ -917,6 +1134,7 @@
         "deprecated": false
       },
       "put": {
+        "description": "placholder description",
         "tags": [
           "Limits"
         ],
@@ -925,11 +1143,18 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Add a payee", 
+                "externalValue": "add-payee"
+              }
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
@@ -962,6 +1187,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "deprecated": false
@@ -969,6 +1197,7 @@
     },
     "/payments/{accountNumber}/transfer": {
       "post": {
+        "description": "placholder description",
         "tags": [
           "Payments"
         ],
@@ -977,11 +1206,18 @@
         "parameters": [
           {
             "name": "accountNumber",
+            "examples": {
+              "id" : {
+                "summary": "Add a payee", 
+                "externalValue": "transfer-payee"
+              }
+            },
             "in": "path",
-            "description": "",
+            "description": "Sample description",
             "required": true,
             "style": "simple",
             "schema": {
+              "$ref": "#/components/schemas/Example",
               "type": "string"
             }
           }
@@ -1004,6 +1240,12 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
           "default": {
             "description": "",
             "headers": {},
@@ -1024,21 +1266,20 @@
     }
   },
   "components": {
-    "securitySchemes":[
-    {
-      "api_key":{
-      "type": "apiKey",
-      "name": "x-api-key",
-      "in": "header"
-    }},{
-    "BasicAuth":{      
-      "type": "http",
-      "scheme": "basic"
+    "securitySchemes":{
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
       }
-    }
-    ],
+    },
     "schemas": {
+      "Example": {
+        "description": "This is an example component schema",
+        "title": "Example schema"
+      },
       "CreateRequest": {
+        "description": "Sample description",
         "title": "CreateRequest",
         "required": [
           "type",
@@ -1047,9 +1288,11 @@
         "type": "object",
         "properties": {
           "type": {
+            "description": "example description",
             "type": "string"
           },
           "holder": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1059,6 +1302,7 @@
         }
       },
       "200OK": {
+        "description": "Sample description",
         "title": "200OK",
         "required": [
           "type",
@@ -1067,6 +1311,7 @@
         "type": "object",
         "properties": {
           "type": {
+            "description": "example description",
             "type": "string"
           },
           "details": {
@@ -1088,6 +1333,7 @@
         }
       },
       "Details": {
+        "description": "example description",
         "title": "Details",
         "required": [
           "domestic",
@@ -1114,6 +1360,7 @@
         }
       },
       "Domestic": {
+        "description": "example description",
         "title": "Domestic",
         "required": [
           "account",
@@ -1122,9 +1369,11 @@
         "type": "object",
         "properties": {
           "account": {
+            "description": "example description",
             "type": "string"
           },
           "routing": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1134,6 +1383,7 @@
         }
       },
       "International": {
+        "description": "example description",
         "title": "International",
         "required": [
           "bic",
@@ -1142,9 +1392,11 @@
         "type": "object",
         "properties": {
           "bic": {
+            "description": "example description",
             "type": "string"
           },
           "iban": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1154,6 +1406,7 @@
         }
       },
       "Newuser": {
+        "description": "example description",
         "title": "Newuser",
         "required": [
           "status",
@@ -1164,15 +1417,19 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "firstName": {
+            "description": "example description",
             "type": "string"
           },
           "lastName": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1184,19 +1441,24 @@
         }
       },
       "200OK1": {
+        "description": "Sample description",
         "title": "200OK1",
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "firstName": {
+            "description": "example description",
             "type": "string"
           },
           "lastName": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1205,19 +1467,24 @@
         }
       },
       "GetuserbyID": {
+        "description": "Sample description",
         "title": "GetuserbyID",
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "firstName": {
+            "description": "example description",
             "type": "string"
           },
           "lastName": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1226,6 +1493,7 @@
         }
       },
       "GetuserbyID(nouserfound)": {
+        "description": "Sample description",
         "title": "GetuserbyID(nouserfound)",
         "required": [
           "status",
@@ -1234,9 +1502,11 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1246,19 +1516,24 @@
         }
       },
       "m200": {
+        "description": "Sample description",
         "title": "m200",
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "firstName": {
+            "description": "example description",
             "type": "string"
           },
           "lastName": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1267,6 +1542,7 @@
         }
       },
       "Updateuser": {
+        "description": "Sample description",
         "title": "Updateuser",
         "required": [
           "status",
@@ -1277,15 +1553,19 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "firstName": {
+            "description": "example description",
             "type": "string"
           },
           "lastName": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1297,6 +1577,7 @@
         }
       },
       "Deleteuser": {
+        "description": "Sample description",
         "title": "Deleteuser",
         "required": [
           "status",
@@ -1305,9 +1586,11 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           },
           "id": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1317,6 +1600,7 @@
         }
       },
       "200OK2": {
+        "description": "Sample description",
         "title": "200OK2",
         "required": [
           "payeeId"
@@ -1324,6 +1608,7 @@
         "type": "object",
         "properties": {
           "payeeId": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1332,6 +1617,7 @@
         }
       },
       "200OK3": {
+        "description": "Sample description",
         "title": "200OK3",
         "required": [
           "daily"
@@ -1339,6 +1625,7 @@
         "type": "object",
         "properties": {
           "daily": {
+            "description": "example description",
             "type": "integer",
             "format": "int32"
           }
@@ -1348,6 +1635,7 @@
         }
       },
       "UpdateRequest": {
+        "description": "Sample description",
         "title": "UpdateRequest",
         "required": [
           "daily"
@@ -1355,6 +1643,7 @@
         "type": "object",
         "properties": {
           "daily": {
+            "description": "example description",
             "type": "integer",
             "format": "int32"
           }
@@ -1364,6 +1653,7 @@
         }
       },
       "200OK4": {
+        "description": "Sample description",
         "title": "200OK4",
         "required": [
           "status"
@@ -1371,6 +1661,7 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1379,6 +1670,7 @@
         }
       },
       "TransferRequest": {
+        "description": "Sample description",
         "title": "TransferRequest",
         "required": [
           "payeeId",
@@ -1389,15 +1681,19 @@
         "type": "object",
         "properties": {
           "payeeId": {
+            "description": "example description",
             "type": "string"
           },
           "amount": {
+            "description": "example description",
             "type": "string"
           },
           "reference": {
+            "description": "example description",
             "type": "string"
           },
           "date": {
+            "description": "example description",
             "type": "string"
           }
         },
@@ -1409,6 +1705,7 @@
         }
       },
       "200OK5": {
+        "description": "Sample description",
         "title": "200OK5",
         "required": [
           "transaction"
@@ -1416,6 +1713,7 @@
         "type": "object",
         "properties": {
           "transaction": {
+            "description": "example description",
             "type": "string"
           }
         },
