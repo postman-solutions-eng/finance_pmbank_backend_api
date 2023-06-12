@@ -110,9 +110,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/latest",
+									"raw": "{{baseUrl}}/accounts/{{accountNumber}}/statement/latest",
 									"host": [
-										"{{aURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"accounts",
@@ -268,9 +268,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{aURL}}/accounts/{{accountNumber}}/statement/date",
+									"raw": "{{baseUrl}}/accounts/{{accountNumber}}/statement/date",
 									"host": [
-										"{{aURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"accounts",
@@ -1087,7 +1087,7 @@
 											"const password = pm.variables.get('password');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/create',",
+											"    url: pm.environment.get(\"baseUrl\") + '/create',",
 											"    method: 'POST',",
 											"    header: 'Content-Type:application/x-www-form-urlencoded',",
 											"    body: {",
@@ -1373,7 +1373,7 @@
 											"const password = pm.variables.get('password');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/create',",
+											"    url: pm.environment.get(\"baseUrl\") + '/create',",
 											"    method: 'POST',",
 											"    header: 'Content-Type:application/x-www-form-urlencoded',",
 											"    body: {",
