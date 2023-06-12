@@ -402,9 +402,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{aURL}}/accounts/create",
+							"raw": "{{baseUrl}}/accounts/create",
 							"host": [
-								"{{aURL}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"accounts",
@@ -544,9 +544,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{aURL}}/accounts/{{accountNumber}}/overview",
+							"raw": "{{baseUrl}}/accounts/{{accountNumber}}/overview",
 							"host": [
-								"{{aURL}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"accounts",
@@ -628,7 +628,7 @@
 											"});",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get('cURL') + '/delete?id=${res.id}',",
+											"    url: pm.environment.get('baseUrl') + '/delete?id=${res.id}',",
 											"    method: 'delete'",
 											"});",
 											"",
@@ -689,9 +689,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{cURL}}/create",
+									"raw": "{{baseUrl}}/create",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"create"
@@ -824,7 +824,7 @@
 											"pm.globals.unset('id');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/delete?id=${id}',",
+											"    url: pm.environment.get(\"baseUrl\") + '/delete?id=${id}',",
 											"    method: 'delete'",
 											"});"
 										],
@@ -876,7 +876,7 @@
 											"const password = pm.variables.get('password');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/create', //`${pm.environment.get('url')}/create`,",
+											"    url: pm.environment.get(\"baseUrl\") + '/create', //`${pm.environment.get('url')}/create`,",
 											"    method: 'POST',",
 											"    header: 'Content-Type:application/x-www-form-urlencoded',",
 											"    body: {",
@@ -884,8 +884,9 @@
 											"        raw: `firstName=${firstName}&lastName=${lastName}&password=${password}`",
 											"    }",
 											"}, (err, res) => {",
-											"    res = res.json();",
-											"    pm.globals.set('id', res.id);",
+											"    console.log(res.json())",
+											"    // res = res.json();",
+											"    // pm.globals.set('id', res.id);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -927,9 +928,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{cURL}}/get?all=true",
+									"raw": "{{baseUrl}}/get?all=true",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"get"
@@ -1036,7 +1037,7 @@
 											"pm.globals.unset('id');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/delete?id=${id}',",
+											"    url: pm.environment.get(\"baseUrl\") + '/delete?id=${id}',",
 											"    method: 'delete'",
 											"});"
 										],
@@ -1134,9 +1135,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{cURL}}/get/?id={{id}}",
+									"raw": "{{baseUrl}}/get/?id={{id}}",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"get",
@@ -1308,7 +1309,7 @@
 											"pm.globals.unset('id');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/delete?id=${id}',",
+											"    url: pm.environment.get(\"baseUrl\") + '/delete?id=${id}',",
 											"    method: 'delete'",
 											"});"
 										],
@@ -1414,9 +1415,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{cURL}}/get/?firstName={{$randomLastName}}",
+									"raw": "{{baseUrl}}/get/?firstName={{$randomLastName}}",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"get",
@@ -1571,7 +1572,7 @@
 											"pm.globals.unset('id');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get(\"cURL\") + '/delete?id=${id}',",
+											"    url: pm.environment.get(\"baseUrl\") + '/delete?id=${id}',",
 											"    method: 'delete'",
 											"});"
 										],
@@ -1637,7 +1638,7 @@
 											"const password = pm.variables.get('password');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get('cURL') + '/create',",
+											"    url: pm.environment.get(\"baseUrl\") + '/create',",
 											"    method: 'POST',",
 											"    header: 'Content-Type:application/x-www-form-urlencoded',",
 											"    body: {",
@@ -1704,9 +1705,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{cURL}}/update?id={{id}}",
+									"raw": "{{baseUrl}}/update?id={{id}}",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"update"
@@ -1837,7 +1838,7 @@
 											"",
 											"pm.test('User can no longer be found', () => {",
 											"    pm.sendRequest({",
-											"        url: pm.collectionVariables.get(\"cURL\") + '/delete?id=${id}',",
+											"        url: pm.environment.get(\"baseUrl\") + '/delete?id=${id}',",
 											"        header: 'x-mock-response-name:Get user by ID (no user found)',",
 											"        method: 'get'",
 											"    }, (err, res) => {",
@@ -1895,7 +1896,7 @@
 											"const password = pm.variables.get('password');",
 											"",
 											"pm.sendRequest({",
-											"    url: pm.collectionVariables.get('cURL') + '/create',",
+											"    url: pm.environment.get(\"baseUrl\") + '/create',",
 											"    method: 'POST',",
 											"    header: 'Content-Type:application/x-www-form-urlencoded',",
 											"    body: {",
@@ -1948,9 +1949,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{cURL}}/delete?id={{id}}",
+									"raw": "{{baseUrl}}/delete?id={{id}}",
 									"host": [
-										"{{cURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"delete"
@@ -2056,9 +2057,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pURL}}/payments/{{accountNumber}}/payees",
+									"raw": "{{baseUrl}}/payments/{{accountNumber}}/payees",
 									"host": [
-										"{{pURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2133,9 +2134,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{pURL}}/payments/{{accountNumber}}/payees/add",
+									"raw": "{{baseUrl}}/payments/{{accountNumber}}/payees/add",
 									"host": [
-										"{{pURL}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2206,9 +2207,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
+									"raw": "{{baseUrl}}/payments/{{accountNumber}}/limits",
 									"host": [
-										"{{pmBankBackendUrl}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2290,9 +2291,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/limits",
+									"raw": "{{baseUrl}}/payments/{{accountNumber}}/limits",
 									"host": [
-										"{{pmBankBackendUrl}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"payments",
@@ -2381,9 +2382,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{pmBankBackendUrl}}/payments/{{accountNumber}}/transfer",
+							"raw": "{{baseUrl}}/payments/{{accountNumber}}/transfer",
 							"host": [
-								"{{pmBankBackendUrl}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"payments",
