@@ -29,7 +29,7 @@
   "paths": {
     "/accounts/{accountNumber}/statement/latest": {
       "get": {
-        "description": "placholder description",
+        "description": "Placeholder description",
         "tags": [
           "Statement"
         ],
