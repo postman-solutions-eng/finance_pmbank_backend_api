@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "Backend API for PMCU",
-    "title": "PMCU Backend",
+    "title": "PMCU Backend", 
     "license": {
       "name": "BSD-1-clause",
       "url": "https://opensource.org/license/bsd-1-clause/"
@@ -13,7 +13,7 @@
       "name": "postmanaut paul",
       "url":"https://postman.com"
     },
-    "version": "1.0.3"
+    "version": "1.0"
   },
   "servers": [
     {
@@ -29,7 +29,7 @@
   "paths": {
     "/accounts/{accountNumber}/statement/latest": {
       "get": {
-        "description": "Placeholder description",
+        "description": "placholder description",
         "tags": [
           "Statement"
         ],
