@@ -1,0 +1,22 @@
+{
+    "space_currencies":[
+        {
+            "currency_code" : "COSMIC_COINS",
+            "currency_name" : "",
+            "atm_locations" : [
+				{
+					"planet": "Alpha Centauri",
+					"location": "Sector A-12, Centauri Prime Bank Plaza"
+				},
+				{
+					"planet": "Andromeda",
+					"location": "Galactic Banking Center, Andromeda Alpha"
+				},
+                 {
+                "planet" : "Nebula Prime",
+                "location" : "Nebula Financial District, Nebula Prime Central"
+                }
+			]
+        }
+    ]
+}
